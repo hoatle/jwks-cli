@@ -16,7 +16,6 @@
   "author": "hoatle",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^13.13.4",
     "commander": "^5.1.0",
     "jose": "^1.26.1"
   }
