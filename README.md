@@ -97,12 +97,12 @@ $ cat .well-known/jwks.json
 
 ```bash
 $ cat <<EOF >test.json
-> {
->   "sub": "1234567890",
->   "name": "John Doe",
->   "iat": 1516239022
-> }
-> EOF
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "iat": 1516239022
+}
+EOF
 ```
 
 ```bash
