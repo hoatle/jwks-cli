@@ -18,7 +18,9 @@ JWT tokens with those created keys.
 - Install:
 
 ```bash
+# Install the develop version
 $ npm install -g teracyhq-incubator/jwks-cli#develop
+# Install from npmjs.com (not yet)
 ```
 
 - Use:
