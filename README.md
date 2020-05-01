@@ -53,6 +53,19 @@ public and private keys were successfully created at .keys/vKgNgISEqVFwTSLeuGcLh
 ```
 
 ```bash
+$ tree .keys/
+.keys/
+├── u53Nq85gp2jQl4W0PPReN4MYmDw_m_JhVL6qk7clGOE
+│   ├── u53Nq85gp2jQl4W0PPReN4MYmDw_m_JhVL6qk7clGOE-rsa
+│   └── u53Nq85gp2jQl4W0PPReN4MYmDw_m_JhVL6qk7clGOE-rsa.pub
+└── vKgNgISEqVFwTSLeuGcLhttlend_eSljwzgOX5WCtTk
+    ├── vKgNgISEqVFwTSLeuGcLhttlend_eSljwzgOX5WCtTk-rsa
+    └── vKgNgISEqVFwTSLeuGcLhttlend_eSljwzgOX5WCtTk-rsa.pub
+
+2 directories, 4 files
+```
+
+```bash
 $ jwks ls
 [
   'u53Nq85gp2jQl4W0PPReN4MYmDw_m_JhVL6qk7clGOE',
