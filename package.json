@@ -1,0 +1,23 @@
+{
+  "name": "jwks-cli",
+  "version": "0.1.0-SNAPSHOT",
+  "description": "JWKS CLI is used to manage JWKs to sign, verify JWTs",
+  "bin": {
+    "jwks": "./bin/jwks.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jwt",
+    "jwk",
+    "jwks"
+  ],
+  "author": "hoatle",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^13.13.4",
+    "commander": "^5.1.0",
+    "jose": "^1.26.1"
+  }
+}
