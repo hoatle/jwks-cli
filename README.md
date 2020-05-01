@@ -90,7 +90,10 @@ $ cat <<EOF >test.json
 >   "iat": 1516239022
 > }
 > EOF
-$ $ cat test.json | jwks sign -k vKgNgISEqVFwTSLeuGcLhttlend_eSljwzgOX5WCtTk
+```
+
+```bash
+$ cat test.json | jwks sign -k vKgNgISEqVFwTSLeuGcLhttlend_eSljwzgOX5WCtTk
 payload: {
   "sub": "1234567890",
   "name": "John Doe",
@@ -108,9 +111,9 @@ the token is verified as follows:
 { sub: '1234567890', name: 'John Doe', iat: 1588356427 }
 ```
 
-Now you can publish the `.well-known/jwks.json` file to https://yourdomain/.well-known/jwks.json
-and distribute the generated JWT token to your users. And then the users can use those tokens to
-access any other services that trust you to verify those token to grant resource access.
+Now you can publish the `.well-known/jwks.json` file to https://yourdomain.com/.well-known/jwks.json
+and distribute the generated JWT token to your users. The users can use those tokens to
+access any other services that trust you to verify those token for resource access grant.
 
 
 ## LICENSE
