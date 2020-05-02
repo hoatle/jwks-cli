@@ -2,7 +2,7 @@
 
 JWKS CLI is used to manage JWKs to sign, verify JWTs:
 
-- generate a JWK RSA public/private key pairs to a specified directory
+- generate JWK RSA public/private keypairs to a specified directory
 - list the JWK key ids from a specified directory
 - export all the public keys from the specified dir to the jwks.json file format
 - sign a JWT token by a specified key id from the specified JWK keys directory
