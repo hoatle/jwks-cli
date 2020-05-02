@@ -90,7 +90,7 @@ program
 
 program
   .command('verify [token]')
-  .description('verify the signed JWT token from a specified a JWKS json file')
+  .description('verify the signed JWT token from a specified JWKS json file')
   .requiredOption('-j, --jwks <jwks>', 'the JWKS json file path, can be http remote or local location', '.well-known/jwks.json')
   .action(function(token, opts) {
     if (stdin) {

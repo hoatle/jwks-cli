@@ -6,7 +6,7 @@ JWKS CLI is used to manage JWKs to sign, verify JWTs:
 - list the JWK key ids from a specified directory
 - export all the public keys from the specified dir to the jwks.json file format
 - sign a JWT token by a specified key id from the specified JWK keys directory
-- verify the signed JWT token from a specified a JWKS json file
+- verify the signed JWT token from a specified JWKS json file
 
 This is extremely useful and secured for any JWT token authorizators to create, manage keys and sign
 JWT tokens with those created keys.
@@ -38,7 +38,7 @@ Commands:
   export [dir] [path]       export all the public keys from the specified dir to the jwks.json file format; default dir: .keys, default path:
                             .well-known/jwks.json
   sign [options] [payload]  sign a JWT token by a specified key id from the specified JWK keys directory
-  verify [options] [token]  verify the signed JWT token from a specified a JWKS json file
+  verify [options] [token]  verify the signed JWT token from a specified JWKS json file
   help [command]            display help for command
 ```
 
