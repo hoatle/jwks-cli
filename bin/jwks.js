@@ -3,6 +3,7 @@
 const fs = require('fs');
 const { readdirSync, readFileSync } = require('fs')
 const { join } = require('path');
+const https = require('https');
 
 const program = require('commander');
 const { JWK: { generateSync, asKey }, JWKS, JWT } = require('jose')
@@ -91,13 +92,14 @@ program
 program
   .command('verify [token]')
   .description('verify the signed JWT token from a specified JWKS json file')
-  .requiredOption('-j, --jwks <jwks>', 'the JWKS json file path, can be http remote or local location', '.well-known/jwks.json')
-  .action(function(token, opts) {
+  .requiredOption('-j, --jwks <jwks>', 'the JWKS json file path, can be a http remote or local location', '.well-known/jwks.json')
+  .action(async function(token, opts) {
     if (stdin) {
       token = stdin
     }
     console.log(`opts.jwks: ${opts.jwks}`)
-    const keystore = JWKS.asKeyStore(JSON.parse(fs.readFileSync(opts.jwks)));
+
+    const keystore = await _get_keystore(opts.jwks);
     const verified = JWT.verify(token, keystore);
     if (verified) {
       console.log('the token is verified as follows:')
@@ -118,4 +120,29 @@ else {
   process.stdin.on('end', function() {
     program.parse(process.argv); 
   });
+}
+
+
+async function _get_keystore(location) {
+  if (location.startsWith('http://') || location.startsWith('https://')) {
+    return new Promise(function(resolve, reject) {
+      https.get(location, (resp) => {
+        let data = '';
+
+        resp.on('data', (chunk) => {
+          data += chunk;
+        });
+
+        resp.on('end', () => {
+          resolve(JWKS.asKeyStore(JSON.parse(data)));
+        });
+
+      }).on("error", (err) => {
+        reject(err);
+      });
+    });
+  } else {
+    // local filesystem
+    return JWKS.asKeyStore(JSON.parse(fs.readFileSync(location)));
+  }
 }
