@@ -100,7 +100,7 @@ program
     console.log(`opts.jwks: ${opts.jwks}`)
 
     const keystore = await _get_keystore(opts.jwks);
-    const verified = JWT.verify(token, keystore);
+    const verified = JWT.verify(token, keystore, { complete: true });
     if (verified) {
       console.log('the token is verified as follows:')
       console.log(verified)
