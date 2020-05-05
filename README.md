@@ -120,7 +120,21 @@ token: eyJraWQiOiJ2S2dOZ0lTRXFWRndUU0xldUdjTGh0dGxlbmRfZVNsand6Z09YNVdDdFRrIiwiY
 $ jwks verify eyJraWQiOiJ2S2dOZ0lTRXFWRndUU0xldUdjTGh0dGxlbmRfZVNsand6Z09YNVdDdFRrIiwiYWxnIjoiUFMyNTYifQ.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTg4MzU2NDI3fQ.JQisO8uGr2RkBCrHaTRkLHWnP2TcG4hHVQl1kGnPL_s65ui_hdRxY4ZxlaIHr4BCNfNq2CPyKoZ-isg52l1tfHOc20ScqkPKEpuKCpSodfDNAHLkcfwPyLc9v8Fv5ib15dsMtXA8Kzvq00FLpLjewtDWLzK2Zk2X5wJRorG92-iLqKPI951Xqvn2pnwiaew9OQnWT7zNK_tcHM7DSsAKO5Cb_zntZfwb3YaIq39ZeikN-SyO7a_jxcGdheR31PrZAzXYQn2MulAf3JjqCH0VWpwosCwgFruHftI0p2fGkphDfkr4wIXXrbMJrnxe1Rn8zu_2lnmiT77zVtc7V-j-SQ
 opts.jwks: .well-known/jwks.json
 the token is verified as follows:
-{ sub: '1234567890', name: 'John Doe', iat: 1588356427 }
+{
+  header: { kid: 'vKgNgISEqVFwTSLeuGcLhttlend_eSljwzgOX5WCtTk', alg: 'PS256' },
+  payload: {
+    sub: '1234567890',
+    name: 'John Doe',
+    iat: 1588356427
+  },
+  signature: 'JQisO8uGr2RkBCrHaTRkLHWnP2TcG4hHVQl1kGnPL_s65ui_hdRxY4ZxlaIHr4BCNfNq2CPyKoZ-isg52l1tfHOc20ScqkPKEpuKCpSodfDNAHLkcfwPyLc9v8Fv5ib15dsMtXA8Kzvq00FLpLjewtDWLzK2Zk2X5wJRorG92-iLqKPI951Xqvn2pnwiaew9OQnWT7zNK_tcHM7DSsAKO5Cb_zntZfwb3YaIq39ZeikN-SyO7a_jxcGdheR31PrZAzXYQn2MulAf3JjqCH0VWpwosCwgFruHftI0p2fGkphDfkr4wIXXrbMJrnxe1Rn8zu_2lnmiT77zVtc7V-j-SQ',
+  key: RSAKey {
+    e: 'AQAB',
+    kid: 'vKgNgISEqVFwTSLeuGcLhttlend_eSljwzgOX5WCtTk',
+    kty: 'RSA',
+    n: 'xopfTRFkXW-rLhB64PP_njp-ldIa-AzwNfIzS7xmPySvd_jaKgJRfMEhF-hx2DbDunjZ3zEakp2QJ2eSH3KGHs2NwLwuJdKjt4uQKaigRcv5qv_vw5i95r-2poFWOj1-QhCtTOAYrYicTsGQOhFtbdZIuM0RDqStpuUN8t1Nyr936IJ0YMY74x3WPjGKkNqPU8MWN5py8HSbbRTpHSjPGKju5R1UHWrUT-rAODNno41rIOIv5PCo2i6DOUxWWhYygS3QUxNH1dFJn53rIMObhvkzkjOgKr1kktXqDT9xNm3kawJ_RoeiCfQlYLauZ0D5XT4yp77CUvOJaaHCUWFN5Q'
+  }
+}
 ```
 
 Now you can publish the `.well-known/jwks.json` file to https://yourdomain.com/.well-known/jwks.json
