@@ -85,7 +85,7 @@ program
     console.log(`opts.keyId: ${opts.keyId}`)
     const key = asKey(readFileSync(join(opts.dir, opts.keyId, `${opts.keyId}-rsa`)));
     const token = JWT.sign(payload, key);
-    console.log(`token: ${token}`);
+    console.log(`signed token: ${token}`);
   });
 
 
