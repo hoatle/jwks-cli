@@ -42,7 +42,9 @@ Commands:
   help [command]            display help for command
 ```
 
-- Examples:
+## Examples:
+
+### Generate
 
 ```bash
 $ jwks generate
@@ -64,6 +66,8 @@ $ tree .keys/
 2 directories, 4 files
 ```
 
+### List keys
+
 ```bash
 $ jwks ls
 [
@@ -71,6 +75,8 @@ $ jwks ls
   'vKgNgISEqVFwTSLeuGcLhttlend_eSljwzgOX5WCtTk'
 ]
 ```
+
+### Export
 
 ```bash
 $ jwks export
@@ -94,6 +100,8 @@ $ cat .well-known/jwks.json
 }
 ```
 
+### Sign JWT tokens
+
 ```bash
 $ cat <<EOF >test.json
 {
@@ -116,6 +124,8 @@ opts.keyId: vKgNgISEqVFwTSLeuGcLhttlend_eSljwzgOX5WCtTk
 signed token: eyJraWQiOiJ2S2dOZ0lTRXFWRndUU0xldUdjTGh0dGxlbmRfZVNsand6Z09YNVdDdFRrIiwiYWxnIjoiUFMyNTYifQ.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTg4MzU2NDI3fQ.JQisO8uGr2RkBCrHaTRkLHWnP2TcG4hHVQl1kGnPL_s65ui_hdRxY4ZxlaIHr4BCNfNq2CPyKoZ-isg52l1tfHOc20ScqkPKEpuKCpSodfDNAHLkcfwPyLc9v8Fv5ib15dsMtXA8Kzvq00FLpLjewtDWLzK2Zk2X5wJRorG92-iLqKPI951Xqvn2pnwiaew9OQnWT7zNK_tcHM7DSsAKO5Cb_zntZfwb3YaIq39ZeikN-SyO7a_jxcGdheR31PrZAzXYQn2MulAf3JjqCH0VWpwosCwgFruHftI0p2fGkphDfkr4wIXXrbMJrnxe1Rn8zu_2lnmiT77zVtc7V-j-SQ
 ```
 
+### Verify signed JWT tokens
+
 ```bash
 $ jwks verify eyJraWQiOiJ2S2dOZ0lTRXFWRndUU0xldUdjTGh0dGxlbmRfZVNsand6Z09YNVdDdFRrIiwiYWxnIjoiUFMyNTYifQ.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTg4MzU2NDI3fQ.JQisO8uGr2RkBCrHaTRkLHWnP2TcG4hHVQl1kGnPL_s65ui_hdRxY4ZxlaIHr4BCNfNq2CPyKoZ-isg52l1tfHOc20ScqkPKEpuKCpSodfDNAHLkcfwPyLc9v8Fv5ib15dsMtXA8Kzvq00FLpLjewtDWLzK2Zk2X5wJRorG92-iLqKPI951Xqvn2pnwiaew9OQnWT7zNK_tcHM7DSsAKO5Cb_zntZfwb3YaIq39ZeikN-SyO7a_jxcGdheR31PrZAzXYQn2MulAf3JjqCH0VWpwosCwgFruHftI0p2fGkphDfkr4wIXXrbMJrnxe1Rn8zu_2lnmiT77zVtc7V-j-SQ
 opts.jwks: .well-known/jwks.json
@@ -136,6 +146,8 @@ the token is verified as follows:
   }
 }
 ```
+
+### Publish
 
 Now you can publish the `.well-known/jwks.json` file to https://yourdomain.com/.well-known/jwks.json
 and distribute the generated JWT tokens to your users. The users can use those tokens to
